@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Basics</h1>
+        <p>A <strong>GameObject</strong> is the fundamental object in Unity. Everything in your scene is a GameObject.</p>
+        <pre><code>GameObject myObject = new GameObject("My Object");</code></pre>
+        
+        <p>To add a component, like a Rigidbody, to a GameObject, use the <code>AddComponent</code> method.</p>
+        <pre><code>myObject.AddComponent&lt;Rigidbody&gt;();</code></pre>
+        
+        <p>You can set the position of a GameObject using the <code>transform.position</code> property.</p>
+        <pre><code>myObject.transform.position = new Vector3(0, 1, 0);</code></pre>
+        
+        <p>Here is a diagram explaining the GameObject structure:</p>
+        <img src="../images/gameobject-structure.png" alt="GameObject Structure Diagram" class="diagram">
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

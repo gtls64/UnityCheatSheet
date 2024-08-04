@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Networking</h1>
+        <p>Set up basic networking using the <code>NetworkManager</code> class.</p>
+        <pre><code>using UnityEngine.Networking;
+
+public class MyNetworkManager : NetworkManager
+{
+    public override void OnServerConnect(NetworkConnection conn)
+    {
+        // Called when a client connects to the server
+    }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {
+        // Called when this client connects to a server
+    }
+}</code></pre>
+        
+        <p>Send messages over the network using the <code>MessageBase</code> class.</p>
+        <pre><code>public class MyMessage : MessageBase
+{
+    public int value;
+}
+
+public class MyNetworkManager : NetworkManager
+{
+    public void SendMessageToServer()
+    {
+        MyMessage msg = new MyMessage { value = 42 };
+        NetworkServer.SendToAll(MyMessage.msgType, msg);
+    }
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Physics</h1>
+        <p>To add force to a Rigidbody, use the <code>AddForce</code> method.</p>
+        <pre><code>rb.AddForce(Vector3.up * 10f);</code></pre>
+        
+        <p>Perform a raycast using the <code>Physics.Raycast</code> method.</p>
+        <pre><code>RaycastHit hit;
+if (Physics.Raycast(transform.position, transform.forward, out hit, 100f))
+{
+    // Ray hit something
+}</code></pre>
+        
+        <p>Use <code>OnCollisionEnter</code> for collision detection.</p>
+        <pre><code>void OnCollisionEnter(Collision collision)
+{
+    // Called when this collider/rigidbody has begun touching another rigidbody/collider
+}</code></pre>
+        
+        <p>Use <code>OnTriggerEnter</code> for trigger detection.</p>
+        <pre><code>void OnTriggerEnter(Collider other)
+{
+    // Called when the Collider other enters the trigger
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

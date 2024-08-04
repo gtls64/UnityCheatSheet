@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Input</h1>
+        <p>Detect key presses using the <code>Input.GetKeyDown</code> method.</p>
+        <pre><code>if (Input.GetKeyDown(KeyCode.Space))
+{
+    // Space key was pressed
+}</code></pre>
+        
+        <p>Detect mouse button presses using the <code>Input.GetMouseButtonDown</code> method.</p>
+        <pre><code>if (Input.GetMouseButtonDown(0))
+{
+    // Left mouse button was pressed
+}</code></pre>
+        
+        <p>Detect touch input using the <code>Input.touchCount</code> and <code>Input.GetTouch</code> methods.</p>
+        <pre><code>if (Input.touchCount > 0)
+{
+    Touch touch = Input.GetTouch(0);
+    // Process touch
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

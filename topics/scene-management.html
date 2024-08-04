@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scene Management - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scene Management</h1>
+        <p>Load a scene using the <code>SceneManager.LoadScene</code> method.</p>
+        <pre><code>using UnityEngine.SceneManagement;
+SceneManager.LoadScene("SceneName");</code></pre>
+        
+        <p>Reload the current scene using the <code>SceneManager.GetActiveScene().name</code> method.</p>
+        <pre><code>SceneManager.LoadScene(SceneManager.GetActiveScene().name);</code></pre>
+        
+        <p>Load a scene asynchronously using the <code>SceneManager.LoadSceneAsync</code> method.</p>
+        <pre><code>StartCoroutine(LoadYourAsyncScene());
+
+IEnumerator LoadYourAsyncScene()
+{
+    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("SceneName");
+    while (!asyncLoad.isDone)
+    {
+        yield return null;
+    }
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

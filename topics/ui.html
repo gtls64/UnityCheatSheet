@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>UI</h1>
+        <p>To update text in a UI element, use the <code>Text.text</code> property.</p>
+        <pre><code>using UnityEngine.UI;
+
+public Text myText;
+myText.text = "Hello, World!";</code></pre>
+        
+        <p>Add a click event to a button using the <code>Button.onClick.AddListener</code> method.</p>
+        <pre><code>public Button myButton;
+myButton.onClick.AddListener(TaskOnClick);
+
+void TaskOnClick()
+{
+    // Button was clicked
+}</code></pre>
+        
+        <p>Add a value change event to a slider using the <code>Slider.onValueChanged.AddListener</code> method.</p>
+        <pre><code>public Slider mySlider;
+mySlider.onValueChanged.AddListener(delegate { ValueChangeCheck(); });
+
+void ValueChangeCheck()
+{
+    // Slider value changed
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

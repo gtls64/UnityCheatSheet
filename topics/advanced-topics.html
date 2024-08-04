@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Topics - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Advanced Topics</h1>
+        <p>Create a ScriptableObject for data containers using the <code>CreateAssetMenu</code> attribute.</p>
+        <pre><code>[CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/MyScriptableObject", order = 1)]
+public class MyScriptableObject : ScriptableObject
+{
+    public int value;
+}</code></pre>
+        
+        <p>Implement the Singleton pattern to ensure a class has only one instance.</p>
+        <pre><code>public class Singleton : MonoBehaviour
+{
+    private static Singleton _instance;
+
+    public static Singleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new GameObject("Singleton").AddComponent<Singleton>();
+            }
+            return _instance;
+        }
+    }
+
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+}</code></pre>
+        
+        <p>Handle events using <code>Action</code> delegates.</p>
+        <pre><code>using System;
+
+public class EventManager : MonoBehaviour
+{
+    public static Action OnSomethingHappened;
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            OnSomethingHappened?.Invoke();
+        }
+    }
+}
+
+public class Listener : MonoBehaviour
+{
+    void OnEnable()
+    {
+        EventManager.OnSomethingHappened += Respond;
+    }
+
+    void OnDisable()
+    {
+        EventManager.OnSomethingHappened -= Respond;
+    }
+
+    void Respond()
+    {
+        // Do something in response
+    }
+}</code></pre>
+        
+        <p>Implement object pooling to reuse objects and improve performance.</p>
+        <pre><code>public class ObjectPool : MonoBehaviour
+{
+    public GameObject objectToPool;
+    public int amountToPool;
+    private List&lt;GameObject&gt; pooledObjects;
+
+    void Start()
+    {
+        pooledObjects = new List&lt;GameObject&gt;();
+        for (int i = 0; i < amountToPool; i++)
+        {
+            GameObject obj = Instantiate(objectToPool);
+            obj.SetActive(false);
+            pooledObjects.Add(obj);
+        }
+    }
+
+    public GameObject GetPooledObject()
+    {
+        foreach (GameObject obj in pooledObjects)
+        {
+            if (!obj.activeInHierarchy)
+            {
+                return obj;
+            }
+        }
+        return null;
+    }
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

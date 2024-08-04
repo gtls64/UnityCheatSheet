@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Audio</h1>
+        <p>Play audio from an AudioSource using the <code>AudioSource.Play</code> method.</p>
+        <pre><code>public AudioSource audioSource;
+audioSource.Play();</code></pre>
+        
+        <p>Adjust the volume of an AudioSource using the <code>AudioSource.volume</code> property.</p>
+        <pre><code>audioSource.volume = 0.5f;</code></pre>
+        
+        <p>Play a sound effect using the <code>AudioSource.PlayOneShot</code> method.</p>
+        <pre><code>public AudioClip soundEffect;
+audioSource.PlayOneShot(soundEffect);</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor Scripting - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Editor Scripting</h1>
+        <p>Create a custom editor window using the <code>EditorWindow</code> class.</p>
+        <pre><code>using UnityEditor;
+using UnityEngine;
+
+public class MyEditorWindow : EditorWindow
+{
+    [MenuItem("Window/My Editor Window")]
+    public static void ShowWindow()
+    {
+        GetWindow&lt;MyEditorWindow&gt;("My Editor Window");
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("Hello, World!", EditorStyles.boldLabel);
+        if (GUILayout.Button("Press Me"))
+        {
+            Debug.Log("Button Pressed");
+        }
+    }
+}</code></pre>
+        
+        <p>Create a custom inspector using the <code>Editor</code> class.</p>
+        <pre><code>using UnityEditor;
+using UnityEngine;
+
+[CustomEditor(typeof(MyScript))]
+public class MyScriptEditor : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        MyScript myScript = (MyScript)target;
+        if (GUILayout.Button("My Custom Button"))
+        {
+            // Button action
+        }
+    }
+}</code></pre>
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

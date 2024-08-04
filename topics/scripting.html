@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripting - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Scripting</h1>
+        <p>A basic MonoBehaviour script in Unity contains <code>Start</code> and <code>Update</code> methods. <code>Start</code> is called once when the script instance is being loaded, and <code>Update</code> is called once per frame.</p>
+        <pre><code>public class MyScript : MonoBehaviour
+{
+    void Start()
+    {
+        // Called once when the script instance is being loaded
+    }
+
+    void Update()
+    {
+        // Called once per frame
+    }
+}</code></pre>
+        
+        <p>You can access components attached to a GameObject using the <code>GetComponent</code> method.</p>
+        <pre><code>Rigidbody rb = myObject.GetComponent&lt;Rigidbody&gt;();</code></pre>
+        
+        <p>To instantiate a new GameObject, use the <code>Instantiate</code> method.</p>
+        <pre><code>Instantiate(myObject, new Vector3(0, 0, 0), Quaternion.identity);</code></pre>
+        
+        <p>To destroy a GameObject, use the <code>Destroy</code> method.</p>
+        <pre><code>Destroy(myObject);</code></pre>
+        
+        <p>Here is a diagram showing the lifecycle of MonoBehaviour methods:</p>
+        <img src="../images/monobehaviour-lifecycle.png" alt="MonoBehaviour Lifecycle Diagram" class="diagram">
+        
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+</body>
+</html>

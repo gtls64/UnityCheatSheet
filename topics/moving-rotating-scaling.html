@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving, Rotating, and Scaling - Unity Cheat Sheet</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Moving, Rotating, and Scaling</h1>
+        
+        <h2>Moving a GameObject</h2>
+        <p>To move a GameObject to a specific position, set its <code>transform.position</code>.</p>
+        <pre><code>myObject.transform.position = new Vector3(1, 2, 3);</code></pre>
+        
+        <p>To translate a GameObject by a vector, use the <code>Translate</code> method. This is useful for moving the object relative to its current position.</p>
+        <pre><code>myObject.transform.Translate(Vector3.forward * Time.deltaTime);</code></pre>
+        
+        <h2>Rotating a GameObject</h2>
+        <p>To set the rotation of a GameObject, use the <code>transform.rotation</code> property with <code>Quaternion.Euler</code>.</p>
+        <pre><code>myObject.transform.rotation = Quaternion.Euler(45, 90, 0);</code></pre>
+        
+        <p>To rotate a GameObject by angles, use the <code>Rotate</code> method. This method rotates the GameObject around its local axes.</p>
+        <pre><code>myObject.transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);</code></pre>
+        
+        <h2>Scaling a GameObject</h2>
+        <p>To set the scale of a GameObject, use the <code>transform.localScale</code> property.</p>
+        <pre><code>myObject.transform.localScale = new Vector3(2, 2, 2);</code></pre>
+        
+        <p>To scale a GameObject by a factor, multiply its <code>transform.localScale</code>. This can be used to uniformly or non-uniformly scale the GameObject.</p>
+        <pre><code>myObject.transform.localScale *= 1.1f;</code></pre>
+        
+        <h2>Example Script</h2>
+        <p>Here is a complete example script that moves, rotates, and scales a GameObject over time.</p>
+        <pre><code>using UnityEngine;
+
+public class MoveRotateScale : MonoBehaviour
+{
+    void Update()
+    {
+        // Move the GameObject forward continuously
+        transform.Translate(Vector3.forward * Time.deltaTime);
+        
+        // Rotate the GameObject around the y-axis
+        transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        
+        // Scale the GameObject up and down over time
+        float scale = Mathf.PingPong(Time.time, 1);
+        transform.localScale = new Vector3(scale, scale, scale);
+    }
+}</code></pre>
+        
+        <h2>Diagram</h2>
+        <p>Here is a diagram showing how to move, rotate, and scale a GameObject:</p>
+        <img src="../images/transform-diagram.png" alt="Transform Diagram" class="diagram">
+        
+        <h2>Interactive Example</h2>
+        <p>Click the buttons below to see the effects of moving, rotating, and scaling a GameObject in an interactive simulation.</p>
+        <div class="interactive-buttons">
+            <button onclick="moveObject()">Move</button>
+            <button onclick="rotateObject()">Rotate</button>
+            <button onclick="scaleObject()">Scale</button>
+        </div>
+        <div id="simulation" class="simulation">
+            <div id="object" class="object"></div>
+        </div>
+
+        <p>To return to the main menu, click <a href="../index.html">here</a>.</p>
+    </div>
+    <script src="../js/script.js"></script>
+    <script src="../js/move-rotate-scale.js"></script>
+</body>
+</html>
