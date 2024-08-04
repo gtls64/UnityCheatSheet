@@ -1,8 +1,8 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace;
     background-color: #121212;
-    color: #e0e0e0;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
@@ -15,6 +15,29 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Menu Bar */
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c2c2c;
+    padding: 10px 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: #33ff33;
+    color: #1e1e1e;
+}
+
 /* Headings */
 h1, h2 {
     color: #ffffff;
@@ -23,14 +46,14 @@ h1, h2 {
 /* Code Blocks */
 pre {
     background: #2c2c2c;
-    border-left: 5px solid #ffffff;
+    border-left: 5px solid #33ff33;
     padding: 10px;
     overflow: auto;
 }
 
 code {
     font-family: 'Courier New', Courier, monospace;
-    color: #94ff99;
+    color: #33ff33;
 }
 
 /* Paragraphs */
@@ -51,13 +74,14 @@ ul li {
 
 ul li a {
     text-decoration: none;
-    color: #75ff7a;
+    color: #ffffff;
     font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 ul li a.active {
     font-weight: bold;
-    color: #1cf0ff;
+    color: #33ff33;
 }
 
 /* Diagrams */
@@ -76,14 +100,16 @@ ul li a.active {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #95ff72;
+    background-color: #33ff33;
     border: none;
     color: #1e1e1e;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 
 .interactive-buttons button:hover {
-    background-color: #ffffff;
+    background-color: #1e1e1e;
+    color: #33ff33;
+    border: 1px solid #33ff33;
 }
 
 /* Simulation */
@@ -99,7 +125,7 @@ ul li a.active {
 .object {
     width: 50px;
     height: 50px;
-    background-color: #b6ff8c;
+    background-color: #33ff33;
     position: absolute;
     top: 50%;
     left: 50%;
